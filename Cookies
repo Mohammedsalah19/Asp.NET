@@ -1,0 +1,39 @@
+// firest page asp code (WebForm1)
+
+ HttpCookie hcookie = new HttpCookie("logcooki");
+            hcookie["name"]= TextBox1.Text;
+            hcookie["age"] = TextBox2.Text;
+            hcookie["pass"] = TextBox3.Text;
+
+            //hcookie.Values.Add("age", TextBox2.Text);
+            //hcookie.Values.Add("pass", TextBox3.Text);
+            hcookie.Expires.AddDays(7);
+            Response.Cookies.Add(hcookie);
+            Response.Redirect("WebForm2.aspx");
+            }
+            
+            // second page asp code (WebForm2)
+            
+              protected void Page_Load(object sender, EventArgs e)
+        {
+            HttpCookie rcvcooki = Request.Cookies["logcooki"];
+            Response.Write("Name" + rcvcooki["name"]);
+            Response.Write("age" + rcvcooki["age"]);
+            Response.Write("pass" + rcvcooki["pass"]);
+        }
+        
+        //first page Design Code
+        
+         <form id="form1" runat="server">
+    <div>
+    
+        Name :<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+        age:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <br />
+        Email :<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+    
+    </div>
+    </form>
