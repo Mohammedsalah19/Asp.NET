@@ -1,0 +1,14 @@
+
+//global.asax.cs 
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            int counter = 0 ;
+            counter = int.Parse(Application["VisitorConter"].ToString());
+            counter++;
+            Application["VisitorConter"] = counter;
+            Application.UnLock();
+        }
+        
+        // another page 
+        
+        lable.text =  Application["VisitorConter"] ;
