@@ -1,0 +1,24 @@
+
+
+  //first form page
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            NewMember p = new NewMember();
+            p.name = TextBox1.Text;
+            p.pass = TextBox2.Text;
+            Session["login"] = p;
+            Response.Redirect("WebForm2.aspx");
+        }
+    }
+    public class NewMember
+    {
+        public string name;
+        public string pass;
+
+    }
+    
+    //second form page
+    
+        NewMember rcv = Session["login"] as NewMember;
+       Response.Write("name is "+ rcv.pass);
