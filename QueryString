@@ -1,0 +1,26 @@
+ 
+ //  Design Page
+ 
+ <form id="form1" runat="server">
+    <div>
+
+    <a href="WebForm2.aspx?id=1&name=mohamed">MOhmmed</a>
+    <a href="WebForm2.aspx?id=2&name=Salah">Salah</a>
+    <a href="WebForm2.aspx?id=3&name=Mokhtar">Mokhtar</a>
+    </div>
+    </form>
+    
+    // second page to view the String Vaue
+    <lable id="Label1"></lable>
+    <lable id="Label2"></lable>
+    //Asp of second Page To View the String Vaue
+    
+            protected void Page_Load(object sender, EventArgs e)
+        {
+
+            Label1.Text = Request.QueryString["id"].ToString();
+           Label2.Text = Request.QueryString["Name"].ToString();
+
+
+
+        }
